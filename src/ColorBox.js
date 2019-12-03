@@ -3,11 +3,14 @@ import React, { Component } from 'react';
 export default class ColorBox extends Component {
 
   render() {
-    return (
-      <div className="color-box" style={{opacity: 2}}>
-        {/* your conditional code here! */}
-      </div>
-    )
+    const value = this.props.opacity
+    return value >= 0.2 ? (
+      <div className="color-box" style={{opacity: value}}>
+        <ColorBox opacity={value - 0.1} />
+      </div> ) : (
+        null
+      )
+    
   }
 
 }
